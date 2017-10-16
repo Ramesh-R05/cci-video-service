@@ -1,0 +1,119 @@
+# This jobs are only used for video service
+
+####################################################################
+# Refer to http://docs.shippable.com/reference/jobs-overview/      #
+# Resources are located in shippable.resources.yml file            #
+# Jobs are numbered to visualize sequence                          #
+####################################################################
+
+jobs:
+
+  #1
+  - name: video-service_runCI
+    type: runCI
+    steps:
+      - OUT: video-service-master-docker-registry
+      - OUT: video-service-branch-docker-registry
+
+  #2BRANCH
+  - name: video-service-manifest-branch
+    type: manifest
+    steps:
+      - IN: video-service-branch-docker-registry
+      - IN: video-service-docker-opts
+      - TASK: managed
+
+  #3BRANCH
+  - name: video-service-sit-deploy-branch
+    type: deploy
+    always:
+      - NOTIFY: video-service-slack-notifications
+    steps:
+      - IN: video-service-manifest-branch # for non-master, don't auto deploy.
+        switch: off
+      - IN: video-service-sit-ecs
+      - IN: video-service-sit-params
+      - IN: video-service-sit-alb-branch
+        applyTo:
+          - manifest: video-service-manifest-branch
+            image: video-service-branch-docker-registry
+            port: 3000
+      - TASK: managed
+        deployMethod: replace
+
+
+  #2
+  - name: video-service-manifest-master
+    type: manifest
+    steps:
+      - IN: video-service-master-docker-registry
+      - IN: video-service-docker-opts
+      - TASK: managed
+
+  #3
+  - name: video-service-sit-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: video-service-slack-notifications
+    steps:
+      - IN: video-service-manifest-master # for master - auto deploy to SIT
+        switch: on
+      - IN: video-service-sit-ecs
+      - IN: video-service-sit-params
+      - IN: video-service-sit-alb
+        applyTo:
+          - manifest: video-service-manifest-master
+            image: video-service-master-docker-registry
+            port: 3000
+      - TASK: managed
+        deployMethod: replace
+
+  #4
+  - name: video-service-smoketest
+    type: runSh
+    always:
+      - NOTIFY: video-service-slack-notifications
+    steps:
+    - IN: video-service-sit-deploy-master
+    - IN: video-service-repo
+      switch: off
+    - TASK:
+      - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+      - script: source ~/.nvm/nvm.sh
+      - script: nvm install "5.5.0"
+      - script: nvm use "5.5.0"
+      - script: cd ./IN/video-service-repo/gitRepo/src
+      - script: npm set registry http://npm.digital.bauer-media.net.au
+      - script: npm install
+      - script: URL=http://services.sit.bxm.internal/video/ npm run test:smoke
+    on_failure:
+      - NOTIFY: video-service-deployment-notifications
+
+  #5 PROD
+  - name: video-service-package-master
+    type: release
+    steps:
+      - IN: video-service-manifest-master
+        switch: off
+      - IN: video-service-smoketest
+      - IN: video-service-version
+      - TASK: managed
+        bump: minor
+
+  #6 PROD
+  - name: video-service-prod-deploy-master
+    type: deploy
+    always:
+      - NOTIFY: video-service-slack-notifications
+    steps:
+      - IN: video-service-package-master
+        switch: off
+      - IN: video-service-prod-ecs
+      - IN: video-service-prod-params
+      - IN: video-service-prod-alb
+        applyTo:
+        - manifest: video-service-manifest-master
+          image: video-service-master-docker-registry
+          port: 3000
+      - TASK: managed
+        deployMethod: upgrade

@@ -1,0 +1,128 @@
+# This resources are only used for Car Service
+
+####################################################################
+# Refer to http://docs.shippable.com/reference/resources-overview/ #
+####################################################################
+
+resources:
+
+  - name: car-service-docker-opts
+    type: dockerOptions
+    version:
+      memory: 512
+      memoryReservation: 256
+      cpuShares: 128
+      portMappings:
+        - 0:3000
+      publishAllPorts : true
+      logConfig:
+        type: awslogs
+        options:
+          awslogs-group: "services_ecs"
+          awslogs-region: "ap-southeast-2"
+          awslogs-stream-prefix: "car-service"
+
+  - name: car-service-repo
+    type: gitRepo
+    integration: production-github
+    pointer:
+      sourceName: bauerxcelmedia/car-service
+      branch: master
+
+  # Slack connection
+  - name: car-service-slack-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#au-shippable"
+        
+  # Slack connection
+  - name: car-service-deployment-notifications
+    type: notification                          #required
+    integration: slack-bauerxcelmedia
+    pointer:
+      recipients:
+        - "#survivors_outlast_au"
+
+  - name: car-service-master-docker-registry
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/car-service"
+    seed:
+      versionName: latest
+
+  - name: car-service-branch-docker-registry
+    type: image
+    integration: AWS-digital-services-ECR
+    pointer:
+      sourceName: "317367993082.dkr.ecr.ap-southeast-2.amazonaws.com/car-service"
+    seed:
+      versionName: latest
+
+  # Seed Release version
+    # for Rollback refer to below URL
+    # http://docs.shippable.com/deploy/rollback/#rolling-back-your-deployments
+  - name: car-service-version
+    type: version
+    seed:
+      versionName: "1.0.0"
+
+  ####################################
+  # NON PROD environment configuration
+  ####################################
+
+  - name: car-service-sit-ecs
+    type: cluster
+    integration: AWS-digital-nonprod
+    pointer:
+      sourceName : "services_ecs"
+      region: "ap-southeast-2"
+
+  - name: car-service-sit-alb
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/car-service-sit/0f5aac441242884c"
+      method: application
+
+  - name: car-service-sit-alb-branch
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:014901580825:targetgroup/car-service-branch-sit/4d3f1935e18d76d2"
+      method: application
+
+  - name: car-service-sit-params
+    type: params
+    version:
+      params:
+        NODE_ENV: "dev"
+        APP_ENV: "sit"
+        APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
+        APP_MOUNT_PATH: "car/"
+
+  ####################################
+  # PROD environment configuration
+  ####################################
+
+  - name: car-service-prod-ecs
+    type: cluster
+    integration: AWS-digital-prod
+    pointer:
+      sourceName : "services_ecs"
+      region: "ap-southeast-2"
+
+  - name: car-service-prod-alb
+    type: loadBalancer
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/car-service-prod/a514eff5738416b6"
+      method: application
+
+  - name: car-service-prod-params
+    type: params
+    version:
+      params:
+        NODE_ENV: "production"
+        APP_ENV: "prod"
+        APP_MOUNT_PATH: "car/"
+        APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
