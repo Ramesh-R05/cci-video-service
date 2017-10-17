@@ -27,7 +27,7 @@ jobs:
   - name: video-service-sit-deploy-branch
     type: deploy
     always:
-      - NOTIFY: video-service-slack-notifications
+      - NOTIFY: video-slack-notifications
     steps:
       - IN: video-service-manifest-branch # for non-master, don't auto deploy.
         switch: off
@@ -54,7 +54,7 @@ jobs:
   - name: video-service-sit-deploy-master
     type: deploy
     always:
-      - NOTIFY: video-service-slack-notifications
+      - NOTIFY: video-slack-notifications
     steps:
       - IN: video-service-manifest-master # for master - auto deploy to SIT
         switch: on
@@ -72,7 +72,7 @@ jobs:
   - name: video-service-smoketest
     type: runSh
     always:
-      - NOTIFY: video-service-slack-notifications
+      - NOTIFY: video-slack-notifications
     steps:
     - IN: video-service-sit-deploy-master
     - IN: video-service-repo
@@ -85,7 +85,7 @@ jobs:
       - script: cd ./IN/video-service-repo/gitRepo/src
       - script: npm set registry http://npm.digital.bauer-media.net.au
       - script: npm install
-      - script: URL=http://services.sit.bxm.internal/video/ npm run test:smoke
+      - script: URL=http://video-service.sit.bxm.net.au npm run test:smoke
     on_failure:
       - NOTIFY: video-service-deployment-notifications
 
@@ -104,7 +104,7 @@ jobs:
   - name: video-service-prod-deploy-master
     type: deploy
     always:
-      - NOTIFY: video-service-slack-notifications
+      - NOTIFY: video-slack-notifications
     steps:
       - IN: video-service-package-master
         switch: off

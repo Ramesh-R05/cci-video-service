@@ -1,4 +1,4 @@
-# This resources are only used for Video Service
+# This resources are only used for Video Service 
 
 ####################################################################
 # Refer to http://docs.shippable.com/reference/resources-overview/ #
@@ -18,7 +18,7 @@ resources:
       logConfig:
         type: awslogs
         options:
-          awslogs-group: "services_ecs"
+          awslogs-group: "app_ecs"
           awslogs-region: "ap-southeast-2"
           awslogs-stream-prefix: "video-service"
 
@@ -30,7 +30,7 @@ resources:
       branch: master
 
   # Slack connection
-  - name: video-service-slack-notifications
+  - name: video-slack-notifications
     type: notification                          #required
     integration: slack-bauerxcelmedia
     pointer:
@@ -77,7 +77,7 @@ resources:
     type: cluster
     integration: AWS-digital-nonprod
     pointer:
-      sourceName : "services_ecs"
+      sourceName : "app_ecs"
       region: "ap-southeast-2"
 
   - name: video-service-sit-alb
@@ -99,7 +99,6 @@ resources:
         NODE_ENV: "dev"
         APP_ENV: "sit"
         APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
-        APP_MOUNT_PATH: "video/"
 
   ####################################
   # PROD environment configuration
@@ -109,13 +108,13 @@ resources:
     type: cluster
     integration: AWS-digital-prod
     pointer:
-      sourceName : "services_ecs"
+      sourceName : "app_ecs"
       region: "ap-southeast-2"
 
   - name: video-service-prod-alb
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/video-service-prod/a514eff5738416b6"
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/video-service-prod/2a6e2017643d4800"
       method: application
 
   - name: video-service-prod-params
@@ -124,5 +123,4 @@ resources:
       params:
         NODE_ENV: "production"
         APP_ENV: "prod"
-        APP_MOUNT_PATH: "video/"
         APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
