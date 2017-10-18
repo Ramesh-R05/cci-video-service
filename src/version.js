@@ -1,0 +1,1 @@
+export default { buildNumber: 'This gets overwritten during the shippable build' }

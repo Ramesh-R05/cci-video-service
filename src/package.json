@@ -1,0 +1,59 @@
+{
+  "name": "video-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "node ./node_modules/babel-istanbul/lib/cli cover --root ./app --include-all-sources --dir ./coverage --report cobertura --report html --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --ui bdd --compilers js:babel/register tests/setup.js tests/ --recursive",
+    "lint": "node ./node_modules/eslint/bin/eslint.js --ext .js app/",
+    "start": "node index.js",
+    "test:ci": "npm run test -- --reporter=xunit --reporter-options output=./../shippable/testresults/result.xml",
+    "test": "node ./node_modules/mocha/bin/_mocha --require babel-polyfill --ui bdd --compilers js:babel-register tests/ --recursive",
+    "test:smoke": "mocha --timeout 10000 --ui bdd --compilers js:babel-register --require tests/setup.js smoke_test/ --recursive",
+    "build": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bauerxcelmedia/video-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bauerxcelmedia/video-service/issues"
+  },
+  "homepage": "https://github.com/bauerxcelmedia/video-service#readme",
+  "dependencies": {
+    "@bxm/microservice": "^3.3.0",
+    "@bxm/winston-logger": "^1.1.0",
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "base-64": "^0.1.0",
+    "config": "^1.26.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "lodash.groupby": "^4.6.0",
+    "lodash.min": "^4.0.1",
+    "newrelic": "^2.0.2",
+    "pro-request": "^2.4.0",
+    "proxyquire": "^1.8.0",
+    "querystring": "^0.2.0",
+    "sinon": "^4.0.1",
+    "superagent": "^3.6.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "chai": "^4.1.2",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "mocha": "^4.0.1",
+    "nconf": "^0.8.5",
+    "supertest": "^3.0.0"
+  }
+}

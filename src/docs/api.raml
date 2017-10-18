@@ -1,0 +1,57 @@
+#%RAML 0.8
+
+title: Car Service
+version: v1
+baseUri: http://services.sit.bxm.internal/car/
+mediaType: application/json
+/options/makes:
+  displayName: Get all makes
+  get:
+      description: |
+        Retrieves all makes from the momo api 
+
+/options:
+  displayName: Custom query to momo api 
+  post:
+      description: |
+        Constructs a query based on the params posted to this route and posts it to the momo api, visit http://internal-momo-staging-services.bauer-media.net.au/swagger/ui/index#/ and click /v1/specs/get_facets for more detail
+      queryParameters:
+        filter:
+            description: Only return cars that match this filter. 
+            type: string
+            required: true
+            example:
+                '{"Make": "Holden", "Model": "Commodore"}'
+        facetFields:
+            description: |
+                Only returns information that match these fields, returns all info by default
+            type: string
+            required: false
+            example: '["Make", "Model", "RRP"]'
+
+/spec/{id}:
+  displayName: Get a specification from momo api
+  description: |
+    Get a specification by specification id from the momo api
+  uriParameters:
+        id:
+            displayName: id
+            type: integer
+            description: Specification ID
+            example: 59579
+  get:
+      responses:
+        200:
+          description: |
+              A successful response will return the following data.
+          body:
+              application/json:
+                  example: !include examples/getSpecificationResponse.json
+        404:
+          description: |
+              If the specification with the provided id is not found it will give the following response.
+          body:
+              application/json:
+                  example: |
+                      Spec not found or not active
+
