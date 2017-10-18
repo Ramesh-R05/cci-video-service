@@ -114,7 +114,7 @@ resources:
   - name: video-service-prod-alb
     type: loadBalancer
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/video-service-prod/2a6e2017643d4800"
+      sourceName: "arn:aws:elasticloadbalancing:ap-southeast-2:622156575630:targetgroup/video-service-prod/1f997bcd4dbd4aa1"
       method: application
 
   - name: video-service-prod-params
