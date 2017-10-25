@@ -1,0 +1,137 @@
+[{
+    "id": "5507321994001",
+    "account_id": "761709621001",
+    "ad_keys": null,
+    "clip_source_video_id": null,
+    "complete": true,
+    "created_at": "2017-07-14T05:17:50.762Z",
+    "cue_points": [],
+    "custom_fields": {
+        "contentprovider": "Bauer AU",
+        "brand": "Bauer Media Group",
+        "genre": "Celebrity",
+        "rssvideoid": "bauer",
+        "uploaded_by": "trex@bauer-media.com.au",
+        "providerfeed": "BauerAU",
+        "feed": "Bauer AU"
+    },
+    "delivery_type": "static_origin",
+    "description": null,
+    "digital_master_id": null,
+    "duration": 39775,
+    "economics": "AD_SUPPORTED",
+    "folder_id": null,
+    "geo": null,
+    "has_digital_master": false,
+    "images": {
+        "thumbnail": {
+            "asset_id": "5507328956001",
+            "remote": false,
+            "src": "http://brightcove04.o.brightcove.com/761709621001/761709621001_5507328956001_5507321994001-th.jpg?pubId=761709621001&videoId=5507321994001",
+            "sources": [{
+                "src": "http://brightcove04.o.brightcove.com/761709621001/761709621001_5507328956001_5507321994001-th.jpg?pubId=761709621001&videoId=5507321994001",
+                "height": 180,
+                "width": 320
+            }, {
+                "src": "https://brightcove04pmdo-a.akamaihd.net/761709621001/761709621001_5507328956001_5507321994001-th.jpg?pubId=761709621001&videoId=5507321994001",
+                "height": 180,
+                "width": 320
+            }]
+        },
+        "poster": {
+            "asset_id": "5507328953001",
+            "remote": false,
+            "src": "http://brightcove04.o.brightcove.com/761709621001/761709621001_5507328953001_5507321994001-vs.jpg?pubId=761709621001&videoId=5507321994001",
+            "sources": [{
+                "src": "http://brightcove04.o.brightcove.com/761709621001/761709621001_5507328953001_5507321994001-vs.jpg?pubId=761709621001&videoId=5507321994001",
+                "height": 720,
+                "width": 1280
+            }, {
+                "src": "https://brightcove04pmdo-a.akamaihd.net/761709621001/761709621001_5507328953001_5507321994001-vs.jpg?pubId=761709621001&videoId=5507321994001",
+                "height": 720,
+                "width": 1280
+            }]
+        }
+    },
+    "link": null,
+    "long_description": null,
+    "name": "WD EXCLUSIVE: Kate & Stuart's airport reunion",
+    "original_filename": "Kate & Stuart's airport reunion.MP4",
+    "projection": null,
+    "published_at": "2017-07-14T05:18:34.876Z",
+    "reference_id": null,
+    "schedule": null,
+    "sharing": null,
+    "state": "ACTIVE",
+    "tags": ["stuart webb", "mae", "kate ritchie", "wochit"],
+    "text_tracks": [],
+    "updated_at": "2017-07-14T05:20:26.978Z"
+}, {
+    "id": "5187860375001",
+    "account_id": "761709621001",
+    "ad_keys": null,
+    "clip_source_video_id": null,
+    "complete": true,
+    "created_at": "2016-10-27T22:40:35.571Z",
+    "cue_points": [],
+    "custom_fields": {
+        "uploaded_by": "trex@bauer-media.com.au",
+        "genre": "Entertainment",
+        "rssvideoid": "bauer",
+        "providerfeed": "BauerAU",
+        "brand": "Bauer Media Group",
+        "contentprovider": "Bauer AU",
+        "feed": "Bauer AU"
+    },
+    "delivery_type": "static_origin",
+    "description": null,
+    "digital_master_id": null,
+    "duration": 44927,
+    "economics": "AD_SUPPORTED",
+    "folder_id": "59963e91db82dc568e4b2ae7",
+    "geo": null,
+    "has_digital_master": false,
+    "images": {
+        "thumbnail": {
+            "asset_id": "5187865679001",
+            "remote": false,
+            "src": "http://brightcove04.o.brightcove.com/761709621001/761709621001_5187865679001_5187860375001-th.jpg?pubId=761709621001&videoId=5187860375001",
+            "sources": [{
+                "src": "http://brightcove04.o.brightcove.com/761709621001/761709621001_5187865679001_5187860375001-th.jpg?pubId=761709621001&videoId=5187860375001",
+                "height": 180,
+                "width": 320
+            }, {
+                "src": "https://brightcove04pmdo-a.akamaihd.net/761709621001/761709621001_5187865679001_5187860375001-th.jpg?pubId=761709621001&videoId=5187860375001",
+                "height": 180,
+                "width": 320
+            }]
+        },
+        "poster": {
+            "asset_id": "5187865680001",
+            "remote": false,
+            "src": "http://brightcove04.o.brightcove.com/761709621001/761709621001_5187865680001_5187860375001-vs.jpg?pubId=761709621001&videoId=5187860375001",
+            "sources": [{
+                "src": "http://brightcove04.o.brightcove.com/761709621001/761709621001_5187865680001_5187860375001-vs.jpg?pubId=761709621001&videoId=5187860375001",
+                "height": 720,
+                "width": 1280
+            }, {
+                "src": "https://brightcove04pmdo-a.akamaihd.net/761709621001/761709621001_5187865680001_5187860375001-vs.jpg?pubId=761709621001&videoId=5187860375001",
+                "height": 720,
+                "width": 1280
+            }]
+        }
+    },
+    "link": null,
+    "long_description": null,
+    "name": "The Bachelorette: Lee wins Georgia Love's love, Matty J left speechless",
+    "original_filename": "The Bachelorette - Matty J's romantic journey.mpeg",
+    "projection": null,
+    "published_at": "2016-10-27T22:41:05.157Z",
+    "reference_id": null,
+    "schedule": null,
+    "sharing": null,
+    "state": "ACTIVE",
+    "tags": ["love", "bachelorette", "inhouse", "lee", "matty j", "georgia"],
+    "text_tracks": [],
+    "updated_at": "2016-10-27T22:41:59.823Z"
+}]

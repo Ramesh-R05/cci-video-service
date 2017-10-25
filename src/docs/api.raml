@@ -1,57 +1,48 @@
 #%RAML 0.8
 
-title: Car Service
+title: Video Service
 version: v1
-baseUri: http://services.sit.bxm.internal/car/
+baseUri: http://video-service.prod.bxm.net.au/
 mediaType: application/json
-/options/makes:
-  displayName: Get all makes
+/video/mrss:
+  displayName: Get all videos
   get:
       description: |
-        Retrieves all makes from the momo api 
+        Retrieves latest videos from brightcove cms api
 
-/options:
-  displayName: Custom query to momo api 
-  post:
+/video/playlists/{playlist_id}/mrss:
+  displayName: Get video feeds by playlist id
+  Get:
       description: |
-        Constructs a query based on the params posted to this route and posts it to the momo api, visit http://internal-momo-staging-services.bauer-media.net.au/swagger/ui/index#/ and click /v1/specs/get_facets for more detail
-      queryParameters:
-        filter:
-            description: Only return cars that match this filter. 
-            type: string
-            required: true
-            example:
-                '{"Make": "Holden", "Model": "Commodore"}'
-        facetFields:
-            description: |
-                Only returns information that match these fields, returns all info by default
-            type: string
-            required: false
-            example: '["Make", "Model", "RRP"]'
+        Retrieves latest videos from brightcove cms api by playlist id, it is equivilent to retrieving videos by alias of this playlist id.
+        example:
+        /video/playlists/4631348873001/mrss
 
-/spec/{id}:
-  displayName: Get a specification from momo api
-  description: |
-    Get a specification by specification id from the momo api
-  uriParameters:
-        id:
-            displayName: id
-            type: integer
-            description: Specification ID
-            example: 59579
-  get:
-      responses:
-        200:
-          description: |
-              A successful response will return the following data.
-          body:
-              application/json:
-                  example: !include examples/getSpecificationResponse.json
-        404:
-          description: |
-              If the specification with the provided id is not found it will give the following response.
-          body:
-              application/json:
-                  example: |
-                      Spec not found or not active
+/video/playlists/{playlist_alias}/mrss:
+  displayName: Get video feeds by playlist alias 
+  Get:
+      description: |
+        Retrieves latest videos from brightcove cms api by playlist alias, it is equivilent to retrieving videos by playlist id of this alias.
+        example:
+        /video/playlists/elle/mrss
+
+/video/folders/{folder_id}/mrss:
+  displayName: Get video feeds by folder id
+  Get:
+      description: |
+        Retrieves latest videos from brightcove cms api by playlist id, it is equivilent to retrieving videos by alias of this folder id.
+        example:
+        /video/folders/597979723bfb3d7fa191c87a/mrss
+
+/video/folders/{folder_alias}/mrss:
+  displayName: Get video feeds by folder alias 
+  Get:
+      description: |
+        Retrieves latest videos from brightcove cms api by playlist alias, it is equivilent to retrieving videos by folder id of this alias.
+        example:
+        /video/folders/food/mrss
+
+
+
+
 

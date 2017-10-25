@@ -1,0 +1,40 @@
+{
+    "status": 400,
+    "msg": {
+        "statusCode": 400,
+        "body": {
+            "error": "invalid_client",
+            "error_description": "The &quot;client_id&quot; parameter is missing, does not name a client registration that is applicable for the requested call, or is not properly authenticated."
+        },
+        "headers": {
+            "date": "Mon, 23 Oct 2017 23:45:12 GMT",
+            "strict-transport-security": "max-age=7776000; includeSubDomains",
+            "content-type": "application/json;charset=UTF-8",
+            "content-length": "209",
+            "server": "Jetty(7.x.y-SNAPSHOT)"
+        },
+        "request": {
+            "uri": {
+                "protocol": "https:",
+                "slashes": true,
+                "auth": null,
+                "host": "oauth.brightcove.com",
+                "port": 443,
+                "hostname": "oauth.brightcove.com",
+                "hash": null,
+                "search": null,
+                "query": null,
+                "pathname": "/v4/access_token",
+                "path": "/v4/access_token",
+                "href": "https://oauth.brightcove.com/v4/access_token"
+            },
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Authorization": "Basic NTMxOWMwZTktNTRhNy00OTBkLTlhMjQtODk3OTk3ZDMxNzVkOnNzc3Nzc3Nzc3NzLVNpMGZmNl9OenJQVEQ5dDExQjdZVXhFaUJGTWhPUzlrU0d3VHZZeFFwMENVVzBxc2szTkk2UmhaVnNvbm1OYjh4MVZSRkFDWTlITHo0bXpELUdKWFhR",
+                "accept": "application/json",
+                "content-length": 29
+            }
+        }
+    }
+}
