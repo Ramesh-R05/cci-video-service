@@ -30,14 +30,14 @@ build:
     - docker --version
     - if [ "$BRANCH" == "master" ] && [ $IS_PULL_REQUEST == false ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/video-service-master-docker-registry.env; fi
     - if [ "$BRANCH" != "master" ]; then echo "versionName=$BRANCH_NAME" >> $JOB_STATE/video-service-branch-docker-registry.env; fi
-    - if [ "$IS_PULL_REQUEST" == false ]; then docker build -f Dockerfile.ecs -t $IMAGE:$BRANCH_NAME --label build-number=$BUILD_NUMBER .; fi
-    - if [ "$IS_PULL_REQUEST" == false ]; then docker tag $IMAGE:$BRANCH_NAME $IMAGE:latest; fi
+    - if [ $IS_PULL_REQUEST == false ]; then docker build -f Dockerfile.ecs -t $IMAGE:$BRANCH_NAME --label build-number=$BUILD_NUMBER .; fi
+    - if [ $IS_PULL_REQUEST == false ]; then docker tag $IMAGE:$BRANCH_NAME $IMAGE:latest; fi
 
   push:
-    - if [ "$IS_PULL_REQUEST" == false ]; then docker push $IMAGE:$BRANCH_NAME; fi
-    - if [ "$IS_PULL_REQUEST" == false ]; then docker push $IMAGE:latest; fi
-    - if [ "$IS_PULL_REQUEST" == false ]; then docker rmi $IMAGE:$BRANCH_NAME; fi # Clear all docker images after completion
-    - if [ "$IS_PULL_REQUEST" == false ]; then docker rmi $IMAGE:latest; fi # Clear all docker images after completion
+    - if [ $IS_PULL_REQUEST == false ]; then docker push $IMAGE:$BRANCH_NAME; fi
+    - if [ $IS_PULL_REQUEST == false ]; then docker push $IMAGE:latest; fi
+    - if [ $IS_PULL_REQUEST == false ]; then docker rmi $IMAGE:$BRANCH_NAME; fi # Clear all docker images after completion
+    - if [ $IS_PULL_REQUEST == false ]; then docker rmi $IMAGE:latest; fi # Clear all docker images after completion
 branches:
   only:
     - master
