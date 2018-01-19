@@ -104,7 +104,7 @@ resources:
 
   - name: video-service-prod-ecs
     type: cluster
-    integration: digital-prod-AWS
+    integration: AWS-digital-prod
     pointer:
       sourceName : "app_ecs"
       region: "ap-southeast-2"
