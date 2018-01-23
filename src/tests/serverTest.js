@@ -43,7 +43,7 @@ describe('Test server', function() {
                 expect(data.rss["xmlns:mi"]).to.eq("http://schemas.ingestion.microsoft.com/common/");
                 expect(data.rss["channel"]["title"]).to.eq("MRSS");
                 expect(data.rss["channel"]["description"]).to.eq("MRSS");
-                expect(data.rss["channel"]["copyright"]).to.eq("2017 BAUER MEDIA PTY LIMITED");
+                expect(data.rss["channel"]["copyright"]).to.contain("BAUER MEDIA PTY LIMITED");
                 expect(data.rss["channel"]["item"].length).to.eq(2);
                 expect(data.rss["channel"]["item"][0].title).to.eq("WD EXCLUSIVE: Kate & Stuart's airport reunion");
                 expect(data.rss["channel"]["item"][1].title).to.eq("The Bachelorette: Lee wins Georgia Love's love, Matty J left speechless");
@@ -81,7 +81,7 @@ describe('Test server', function() {
                 expect(data.rss["xmlns:mi"]).to.eq("http://schemas.ingestion.microsoft.com/common/");
                 expect(data.rss["channel"]["title"]).to.eq("MRSS");
                 expect(data.rss["channel"]["description"]).to.eq("MRSS");
-                expect(data.rss["channel"]["copyright"]).to.eq("2017 BAUER MEDIA PTY LIMITED");
+                expect(data.rss["channel"]["copyright"]).to.contain("BAUER MEDIA PTY LIMITED");
                 expect(data.rss["channel"]["item"].length).to.eq(2);
                 expect(data.rss["channel"]["item"][0].title).to.eq("WD EXCLUSIVE: Kate & Stuart's airport reunion");
                 expect(data.rss["channel"]["item"][1].title).to.eq("The Bachelorette: Lee wins Georgia Love's love, Matty J left speechless");
@@ -119,7 +119,7 @@ describe('Test server', function() {
                 expect(data.rss["xmlns:mi"]).to.eq("http://schemas.ingestion.microsoft.com/common/");
                 expect(data.rss["channel"]["title"]).to.eq("MRSS");
                 expect(data.rss["channel"]["description"]).to.eq("MRSS");
-                expect(data.rss["channel"]["copyright"]).to.eq("2017 BAUER MEDIA PTY LIMITED");
+                expect(data.rss["channel"]["copyright"]).to.contain("BAUER MEDIA PTY LIMITED");
                 expect(data.rss["channel"]["item"].length).to.eq(2);
                 expect(data.rss["channel"]["item"][0].title).to.eq("WD EXCLUSIVE: Kate & Stuart's airport reunion");
                 expect(data.rss["channel"]["item"][1].title).to.eq("The Bachelorette: Lee wins Georgia Love's love, Matty J left speechless");
