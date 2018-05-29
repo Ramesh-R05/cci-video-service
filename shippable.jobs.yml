@@ -99,6 +99,8 @@ jobs:
       - IN: video-service-version
       - TASK: managed
         bump: minor
+    on_success:
+      - NOTIFY: video-service-deployment-notifications
 
   #6 PROD
   - name: video-service-prod-deploy-master
