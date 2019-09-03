@@ -43,7 +43,7 @@ resources:
     integration: slack-bauerxcelmedia
     pointer:
       recipients:
-        - "#survivors_outlast_au"
+        - "#au-shippable"
 
   - name: video-service-master-docker-registry
     type: image
@@ -97,6 +97,8 @@ resources:
         NODE_ENV: "dev"
         APP_ENV: "sit"
         APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
+        #JWP_MANAGEMENT_KEY_ID JWP_MANAGEMENT_SECRET
+        secure: MTo/ffCawGjeVJBnHM1oYtgeWd6g1OwDx0cFqt3ilrrirMhoNys1jTv1hqLUytHpPlGnYD8AAT7ukeyDo5GVwNGcNeDbjo6N8Ujr2QLi99d4jhtupF9fD6s5sj918k0udNgzk2NkUm/t0fPAW9TyPc+zUCibp5qLBiOvtomJJONt6yOC3teS9aNzrAQYSJTi5lJEdD/svW5fPWwVsRW+RjHIufi10t5NnZAgk5XVKQWbZ38igoJRksUqlnG1LTH2zaKpxR1IgT0cIQpOfdRjzZm22/Y2XEzXOj+RlfGLYH3jRIlB7+xhSIJYAX0kNr3YoKlsjoLaiIl9aXFPvh1J1Q==
 
   ####################################
   # PROD environment configuration
@@ -122,3 +124,5 @@ resources:
         NODE_ENV: "production"
         APP_ENV: "prod"
         APM_KEY: "c777240932e6282ffacc6a42ae6a0709426522bb"
+        #JWP_MANAGEMENT_KEY_ID JWP_MANAGEMENT_SECRET
+        secure: eQ+VBIgiwDh2kZq44Kv4ZemzAHLH30ZI6NLBAtXUXAm1UkzjKt55jSGfCfGXuHSrGv7pD2EZh7BBqh4BAZNVznI4nqRafvRwUTq7HPjs7GcwFRc5r15flf286zkO5tppVCl8RZZI0JyIt3mj5PfwP9MISu7eN+2r4Czng+TrxKIE4NINANWZqpxBNJ9q6PQMCaubG1gQvZGjb263c+59AAYzkk7aevaHjaRwYQJZ87NyN6Ma3nV2JDx1gT1dWM2tqbObS3CYzqn4c6z5L0nkzq5Lvn9Gqr4ZQNqebMGHy133jMeCTavzUBIwpaiVyVYDhUekPNQ7KRbKAhJD300Uqw==
