@@ -69,25 +69,25 @@ jobs:
         deployMethod: replace
 
   #4
-  - name: video-service-smoketest
-    type: runSh
-    always:
-      - NOTIFY: video-slack-notifications
-    steps:
-    - IN: video-service-sit-deploy-master
-    - IN: video-service-repo
-      switch: off
-    - TASK:
-      - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-      - script: source ~/.nvm/nvm.sh
-      - script: nvm install "8.9.1"
-      - script: nvm use "8.9.1"
-      - script: cd ./IN/video-service-repo/gitRepo/src
-      - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
-      - script: npm install
-      - script: URL=http://video-service.sit.bxm.net.au npm run test:smoke
-    on_failure:
-      - NOTIFY: video-service-deployment-notifications
+  # - name: video-service-smoketest
+  #   type: runSh
+  #   always:
+  #     - NOTIFY: video-slack-notifications
+  #   steps:
+  #   - IN: video-service-sit-deploy-master
+  #   - IN: video-service-repo
+  #     switch: off
+  #   - TASK:
+  #     - script: curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+  #     - script: source ~/.nvm/nvm.sh
+  #     - script: nvm install "8.9.1"
+  #     - script: nvm use "8.9.1"
+  #     - script: cd ./IN/video-service-repo/gitRepo/src
+  #     - script: npm set @bxm:registry http://npm.digital.bauer-media.net.au
+  #     - script: npm install
+  #     - script: URL=http://video-service.sit.bxm.net.au npm run test:smoke
+  #   on_failure:
+  #     - NOTIFY: video-service-deployment-notifications
 
   #5 PROD
   - name: video-service-package-master
@@ -95,7 +95,7 @@ jobs:
     steps:
       - IN: video-service-manifest-master
         switch: off
-      - IN: video-service-smoketest
+      # - IN: video-service-smoketest
       - IN: video-service-version
       - TASK: managed
         bump: minor
