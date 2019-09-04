@@ -1,7 +1,7 @@
 import RSS from '@bxm/rss-builder';
 import mime from 'mime';
 
-function createChannelData(req) {
+const createChannelData = (req) => {
     const { protocol, originalUrl } = req;
     const hostname = req.get('host');
 
@@ -15,52 +15,72 @@ function createChannelData(req) {
         ttl: 60,
         generator: `${protocol}://${hostname}`,
         custom_namespaces: {
-            dc: 'http://purl.org/dc/terms',
+            dc: 'http://purl.org/dc/elements/1.1/',
+            dcterms: 'http://purl.org/dc/terms',
             media: 'http://search.yahoo.com/mrss/',
             mi: 'http://schemas.ingestion.microsoft.com/common/'
         }
     };
-}
+};
 
 
-function getMimeType(src) {
-    if (src.indexOf('?') > 0) return mime.getType(src.split('?')[0]);
+const getMimeType = (src) => {
+    if (src && Array.isArray(src)) {
+        if (src.indexOf('?') > 0) {
+            return mime.getType(src.split('?')[0]);
+        }
+    }
     return mime.getType(src);
-}
+};
 
-function createItemData(item) {
-    const videoSrc = `http://players.brightcove.net/${item.account_id}/default_default/index.html?videoId=${item.id}`;
-    const publisher = item.custom_fields.contentprovider || 'Bauer Media Pty Ltd';
-    const category = item.custom_fields.brand;
-    const title = item.name;
-    const description = item.description || title;
-    const pulishDate = item.published_at;
-    const updateDate = item.updated_at;
-    const keyWords = item.tags && item.tags.length > 0 ? item.tags.join(',') : '';
+const createItemData = (item) => {
+    const {
+        sources,
+        brand,
+        title,
+        description,
+        contentprovider,
+        updatedAt,
+        tags,
+        image,
+        pubdate,
+        brightcoveid,
+        mediaId,
+        duration
+    } = item;
+    const videoSource = sources.filter(source => source.label === '180p');
+    const videoSrc = videoSource[0].file;
+    const publisher = contentprovider || 'Bauer Media Pty Ltd';
+    const category = brand;
+    const itemTitle = title;
+    const itemDescription = description || itemTitle;
+    const guid = brightcoveid || mediaId;
+    const updateDate = updatedAt || pubdate;
+    const keyWords = tags || '';
     const licensorName = 'BAUER MEDIA PTY LIMITED';
     const thumbnail = [
         {
-            src: item.images.thumbnail.sources[0].src,
-            width: item.images.thumbnail.sources[0].width,
-            height: item.images.thumbnail.sources[0].height,
-            type: getMimeType(item.images.thumbnail.sources[0].src)
+            src: image,
+            width: 320,
+            height: 180,
+            type: getMimeType(image)
         }
-    ]
+    ];
 
     return {
-        title: title,
-        description: description,
-        guid: `video${item.id}`,
+        itemTitle,
+        itemDescription,
+        guid: `video${guid}`,
         custom_elements: [
-            { 'pubDate': item.published_at },
-            { 'author': publisher },
+            { pubDate: pubdate },
+            { author: publisher },
             {
                 'media:content': [
                     {
                         _attr: {
                             url: videoSrc,
-                            duration: item.duration,
-                            type: getMimeType(item.original_filename)
+                            duration,
+                            type: getMimeType(videoSrc)
                         }
                     },
                     {
@@ -70,38 +90,40 @@ function createItemData(item) {
                             }
                         }
                     },
-                    { 
+                    {
                         'media:thumbnail': {
-                             _attr: {
+                            _attr: {
                                 url: thumbnail[0].src,
                                 type: thumbnail[0].type,
                                 width: thumbnail[0].width,
                                 height: thumbnail[0].height
                             }
-                        }   
+                        }
                     },
-                    { 'media:title': title },
-                    { 'media:text': description },
+                    { 'media:title': itemTitle },
+                    { 'media:text': itemDescription },
                     { 'media:copyright': publisher }
                 ]
             },
-            { 'lastBuildDate': updateDate },
-            { 'mi:duration': item.duration },
+            { lastBuildDate: updateDate },
+            { 'mi:duration': duration },
             { 'mi:licensorName': licensorName },
             { 'media:category': category },
             { 'media:keywords': keyWords }
-        ],
+        ]
     };
-}
+};
 
-function mrss(req) {
+const mrss = (req) => {
     const jsonVideos = req.videos;
     const feed = new RSS(createChannelData(req));
-    const items = jsonVideos.map(item => createItemData(item));
-    items.forEach(item => feed.item(item));
+
+    if (jsonVideos && Array.isArray(jsonVideos.playlist)) {
+        const items = jsonVideos.playlist.map(item => createItemData(item));
+        items.forEach(item => feed.item(item));
+    }
+
     return feed;
-}
-
-
+};
 
 export default mrss;

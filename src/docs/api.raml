@@ -5,42 +5,26 @@ version: v1
 baseUri: http://video-service.prod.bxm.net.au/
 mediaType: application/json
 /video/mrss:
-  displayName: Get all videos
+  displayName: Get all latest videos feeds over the last 7 days from all brands with max 20 videos each brand
   get:
       description: |
-        Retrieves latest videos from brightcove cms api
+        Retrieves latest JW Player videos from all brands with max 20 videos each brand
 
-/video/playlists/{playlist_id}/mrss:
+/video/playlist/{playlist_id}/mrss:
   displayName: Get video feeds by playlist id
   Get:
       description: |
-        Retrieves latest videos from brightcove cms api by playlist id, it is equivilent to retrieving videos by alias of this playlist id.
+        Retrieves all JW Player videos by playlist id.
         example:
-        /video/playlists/4631348873001/mrss
+        /video/playlist/X1jFQP7R/mrss
 
-/video/playlists/{playlist_alias}/mrss:
-  displayName: Get video feeds by playlist alias 
+/video/playlist/{brand_name}/mrss:
+  displayName: Get video feeds by brand name
   Get:
       description: |
-        Retrieves latest videos from brightcove cms api by playlist alias, it is equivilent to retrieving videos by playlist id of this alias.
+        Retrieves all JW Player videos by brand name.
         example:
-        /video/playlists/elle/mrss
-
-/video/folders/{folder_id}/mrss:
-  displayName: Get video feeds by folder id
-  Get:
-      description: |
-        Retrieves latest videos from brightcove cms api by playlist id, it is equivilent to retrieving videos by alias of this folder id.
-        example:
-        /video/folders/597979723bfb3d7fa191c87a/mrss
-
-/video/folders/{folder_alias}/mrss:
-  displayName: Get video feeds by folder alias 
-  Get:
-      description: |
-        Retrieves latest videos from brightcove cms api by playlist alias, it is equivilent to retrieving videos by folder id of this alias.
-        example:
-        /video/folders/food/mrss
+        /video/playlist/elle/mrss
 
 
 

@@ -3,25 +3,27 @@
 ## BaseUri: http://video-service.prod.bxm.net.au
 
 ## Related Reading:
- - https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fingestiontestcontent.blob.core.windows.net%2Fsamplefeedsdata%2FContent%20Specification.docx
- - http://feedexamples.ingestion.microsoft.com/video
- - https://support.brightcove.com/getting-access-tokens
- - https://brightcovelearning.github.io/Brightcove-API-References/cms-api/v1/doc/index.html#api-videoGroup-Get_Videos
- - https://brightcovelearning.github.io/Brightcove-API-References/cms-api/v1/doc/index.html#api-playlistGroup-Get_Videos_in_Playlist
- - https://brightcovelearning.github.io/Brightcove-API-References/cms-api/v1/doc/index.html#api-folderGroup-Get_Videos_in_Folder
+ - https://developer.jwplayer.com
 
 ## Router:
 ### General Info
  - /docs
  - /version
-### Get latest videos
+### Get latest videos from all brands
  - /video/mrss
-### Get latest videos by playlist id/alias, in following example: elle is the alias of 4631348873001
- - /video/playlists/elle/mrss
- - /video/playlists/4631348873001/mrss
-### Get latest videos by folder id/alias, in following example: food is the alias of 597979723bfb3d7fa191c87a
- - /video/folders/food/mrss
- - /video/folders/597979723bfb3d7fa191c87a/mrss
+### Get latest videos by playlist id/brand, in following example: X1jFQP7R is elle's playlist's id
+ - /video/playlist/elle/mrss
+ - /video/playlist/X1jFQP7R/mrss
 
- ### How to add alias of playlist/folder id
-    Please check `/src/config/default.json`, please do not change the entry name `playlists` or `folders` under `alias`, as its part of the endpoint.
+ ### JWPlayer management api nonce and timestamp config formats
+ - const apiNonce = Math.floor(Math.random() * 89999999 + 100000);
+ - const apiTimeStamp = Math.round((new Date()).getTime() / 1000);
+
+ ### examples of how to use params/param formats in the following methods (dev note)
+ - JW Player Delivery API
+ - https://developer.jwplayer.com/jw-platform/docs/delivery-api-reference/#/Playlists/get_v2_playlists__playlist_id_
+ - allBrandLatestVideos in delivery.js -> const params = { search: 'msn', recency: '7D', page_limit: 20 };
+
+ - JW Player Management API
+ - https://developer.jwplayer.com/jw-platform/reference/v1/methods/channels/list.html
+ - getAllChannels in management.js -> const params = { order_by: 'title:asc', type_filter: 'search' };

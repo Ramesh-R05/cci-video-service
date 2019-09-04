@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import cors from 'cors';
-import brightcoveController from './controllers/brightcoveController';
+import { getAllPlaylistVideos, getAllBrandLatestVideos, mrssGenerator } from './controllers/videoController';
 
 const router = Router();
 
@@ -11,8 +11,7 @@ router.get('/', (req, res) => {
     res.send('VIDEO_SERVICE');
 });
 
-router.use('/video', brightcoveController);
-router.use(function (err, req, res, next) {
-    res.status(err.statusCode || 500).json(err);
-});
+router.get('/video/playlist/:brandOrId/mrss', [getAllPlaylistVideos, mrssGenerator]);
+router.get('/video/mrss', [getAllBrandLatestVideos, mrssGenerator]);
+
 export default router;

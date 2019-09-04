@@ -1,0 +1,168 @@
+{
+    "playlist":[
+       {
+          "feed":"Bauer NZ",
+          "description":" ",
+          "pubdate":1533522671,
+          "tags":"relationships,msn,new zealand royalty,rugby,relationship,all blacks,celebrity,gemma mccaw,msn nz,richie and gemma mccaw,gemma flynn,black sticks,hockey,mccaw,richie mccaw,love,new zealand,pregnancy",
+          "rssvideoid":"bauer",
+          "image":"https://cdn.jwplayer.com/thumbs/UYH7dCgM-720.jpg",
+          "feedid":"qjuMH9u5",
+          "sources":[
+             {
+                "type":"application/vnd.apple.mpegurl",
+                "file":"https://cdn.jwplayer.com/manifests/UYH7dCgM.m3u8"
+             },
+             {
+                "width":320,
+                "height":180,
+                "type":"video/mp4",
+                "file":"https://cdn.jwplayer.com/videos/UYH7dCgM-CHhJA2gx.mp4",
+                "label":"180p"
+             },
+             {
+                "width":480,
+                "height":270,
+                "type":"video/mp4",
+                "file":"https://cdn.jwplayer.com/videos/UYH7dCgM-HPScUxGz.mp4",
+                "label":"270p"
+             },
+             {
+                "width":720,
+                "height":406,
+                "type":"video/mp4",
+                "file":"https://cdn.jwplayer.com/videos/UYH7dCgM-pYg6mWUZ.mp4",
+                "label":"406p"
+             },
+             {
+                "width":1280,
+                "height":720,
+                "type":"video/mp4",
+                "file":"https://cdn.jwplayer.com/videos/UYH7dCgM-l9EAf8x1.mp4",
+                "label":"720p"
+             },
+             {
+                "type":"audio/mp4",
+                "file":"https://cdn.jwplayer.com/videos/UYH7dCgM-igNxZ4Da.m4a",
+                "label":"AAC Audio"
+             },
+             {
+                "width":1920,
+                "height":1080,
+                "type":"video/mp4",
+                "file":"https://cdn.jwplayer.com/videos/UYH7dCgM-GWiY2RY2.mp4",
+                "label":"1080p"
+             }
+          ],
+          "tracks":[
+             {
+                "kind":"thumbnails",
+                "file":"https://cdn.jwplayer.com/strips/UYH7dCgM-120.vtt"
+             }
+          ],
+          "link":"https://cdn.jwplayer.com/previews/UYH7dCgM",
+          "uploaded_by":"lbyrne@bauermedia.co.nz",
+          "duration":135,
+          "brightcoveid":"5818390699001",
+          "mediaid":"UYH7dCgM",
+          "title":"Richie McCaw and Gemma Flynn\u2019s picture perfect love story",
+          "video_source":"now-to-love",
+          "variations":{
+ 
+          },
+          "sites":"NTL - NZ",
+          "original_mediaid":"AU9JxT7Q",
+          "originalName":"Love story rexport.mp4",
+          "contentprovider":"Bauer NZ",
+          "genre":"Celebrity",
+          "brand":"Now to Love NZ"
+       },
+       {
+          "feed":"Bauer NZ",
+          "description":"testing description",
+          "pubdate":1538617774,
+          "tags":"cutest moments,royal children,royal moments,royal,now to love nz,royals,the royals,msn,ntl,princess charlotte,kate middleton,wedding,msn nz,prince william,prince george,cute moment,now to love,prince louis",
+          "rssvideoid":"bauer",
+          "image":"https://cdn.jwplayer.com/thumbs/mr8u0Ge3-720.jpg",
+          "uploaded_by":"lbyrne",
+          "feedid":"qjuMH9u5",
+          "sources":[
+             {
+                "type":"application/vnd.apple.mpegurl",
+                "file":"https://cdn.jwplayer.com/manifests/mr8u0Ge3.m3u8"
+             },
+             {
+                "width":320,
+                "height":180,
+                "type":"video/mp4",
+                "file":"https://cdn.jwplayer.com/videos/mr8u0Ge3-CHhJA2gx.mp4",
+                "label":"180p"
+             },
+             {
+                "width":480,
+                "height":270,
+                "type":"video/mp4",
+                "file":"https://cdn.jwplayer.com/videos/mr8u0Ge3-HPScUxGz.mp4",
+                "label":"270p"
+             },
+             {
+                "width":720,
+                "height":406,
+                "type":"video/mp4",
+                "file":"https://cdn.jwplayer.com/videos/mr8u0Ge3-pYg6mWUZ.mp4",
+                "label":"406p"
+             },
+             {
+                "width":1280,
+                "height":720,
+                "type":"video/mp4",
+                "file":"https://cdn.jwplayer.com/videos/mr8u0Ge3-l9EAf8x1.mp4",
+                "label":"720p"
+             },
+             {
+                "type":"audio/mp4",
+                "file":"https://cdn.jwplayer.com/videos/mr8u0Ge3-igNxZ4Da.m4a",
+                "label":"AAC Audio"
+             },
+             {
+                "width":1920,
+                "height":1080,
+                "type":"video/mp4",
+                "file":"https://cdn.jwplayer.com/videos/mr8u0Ge3-GWiY2RY2.mp4",
+                "label":"1080p"
+             }
+          ],
+          "tracks":[
+             {
+                "kind":"thumbnails",
+                "file":"https://cdn.jwplayer.com/strips/mr8u0Ge3-120.vtt"
+             }
+          ],
+          "link":"https://cdn.jwplayer.com/previews/mr8u0Ge3",
+          "updatedAt":"1638617774",
+          "duration":124,
+          "brightcoveid":"5844067494001",
+          "mediaid":"mr8u0Ge3",
+          "title":"The Royal Trio's Cutest Moments ",
+          "video_source":"now-to-love",
+          "variations":{
+ 
+          },
+          "sites":"NTL - NZ",
+          "original_mediaid":"Yy2IBZw3",
+          "originalName":"Royal trio export.mp4",
+          "contentprovider":"Bauer NZ",
+          "genre":"Royals",
+          "brand":"Now to Love NZ"
+       }
+    ],
+    "description":"",
+    "links":{
+       "last":"https://cdn.jwplayer.com/v2/playlists/qjuMH9u5?search=msn&format=json&page_offset=1&page_limit=10",
+       "first":"https://cdn.jwplayer.com/v2/playlists/qjuMH9u5?search=msn&format=json&page_offset=1&page_limit=10"
+    },
+    "title":"NTL",
+    "feed_instance_id":"81f1c43a-8a8b-4ff7-8776-fdda28aec4e8",
+    "feedid":"qjuMH9u5",
+    "kind":"SEARCH"
+ }

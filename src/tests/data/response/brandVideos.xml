@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dcterms="http://purl.org/dc/terms" xmlns:media="http://search.yahoo.com/mrss/" xmlns:mi="http://schemas.ingestion.microsoft.com/common/">
+    <channel>
+        <title>
+            <![CDATA[MRSS]]>
+        </title>
+        <description>
+            <![CDATA[MRSS]]>
+        </description>
+        <link>http://localhost:3000/video/playlist/ntl/mrss</link>
+        <generator>http://localhost:3000</generator>
+        <lastBuildDate>2019-08-20T00:59:20.88Z</lastBuildDate>
+        <atom:link href="http://localhost:3000/video/playlist/ntl/mrss" rel="self" type="application/rss+xml"/>
+        <copyright>
+            <![CDATA[2019 BAUER MEDIA PTY LIMITED]]>
+        </copyright>
+        <language>
+            <![CDATA[en-us]]>
+        </language>
+        <ttl>60</ttl>
+        <item>
+            <title>
+                <![CDATA[No title]]>
+            </title>
+            <guid isPermaLink="false">video5844067494001</guid>
+            <pubDate>1538617774</pubDate>
+            <author>Bauer NZ</author>
+            <media:content url="https://cdn.jwplayer.com/videos/mr8u0Ge3-CHhJA2gx.mp4" duration="124" type="video/mp4">
+                <media:player url="https://cdn.jwplayer.com/videos/mr8u0Ge3-CHhJA2gx.mp4"/>
+                <media:thumbnail url="https://cdn.jwplayer.com/thumbs/mr8u0Ge3-720.jpg" type="image/jpeg" width="320" height="180"/>
+                <media:title>The Royal Trio&apos;s Cutest Moments </media:title>
+                <media:text>testing description</media:text>
+                <media:copyright>Bauer NZ</media:copyright>
+            </media:content>
+            <lastBuildDate>1638617774</lastBuildDate>
+            <mi:duration>124</mi:duration>
+            <mi:licensorName>BAUER MEDIA PTY LIMITED</mi:licensorName>
+            <media:category>Now to Love NZ</media:category>
+            <media:keywords>cutest moments,royal children,royal moments,royal,now to love nz,royals,the royals,msn,ntl,princess charlotte,kate middleton,wedding,msn nz,prince william,prince george,cute moment,now to love,prince louis</media:keywords>
+        </item>
+        <item>
+            <title>
+                <![CDATA[No title]]>
+            </title>
+            <guid isPermaLink="false">video5818390699001</guid>
+            <pubDate>1533522671</pubDate>
+            <author>Bauer NZ</author>
+            <media:content url="https://cdn.jwplayer.com/videos/UYH7dCgM-CHhJA2gx.mp4" duration="135" type="video/mp4">
+                <media:player url="https://cdn.jwplayer.com/videos/UYH7dCgM-CHhJA2gx.mp4"/>
+                <media:thumbnail url="https://cdn.jwplayer.com/thumbs/UYH7dCgM-720.jpg" type="image/jpeg" width="320" height="180"/>
+                <media:title>Richie McCaw and Gemma Flynn’s picture perfect love story</media:title>
+                <media:text> </media:text>
+                <media:copyright>Bauer NZ</media:copyright>
+            </media:content>
+            <lastBuildDate>1533522671</lastBuildDate>
+            <mi:duration>135</mi:duration>
+            <mi:licensorName>BAUER MEDIA PTY LIMITED</mi:licensorName>
+            <media:category>Now to Love NZ</media:category>
+            <media:keywords>relationships,msn,new zealand royalty,rugby,relationship,all blacks,celebrity,gemma mccaw,msn nz,richie and gemma mccaw,gemma flynn,black sticks,hockey,mccaw,richie mccaw,love,new zealand,pregnancy</media:keywords>
+        </item>
+    </channel>
+</rss>

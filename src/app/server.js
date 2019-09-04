@@ -1,7 +1,7 @@
 import Server from '@bxm/microservice';
 import routes from './routes';
 import version from '../version';
-import config from '../config';
+import config from '../serverConfig';
 import logger from '../logger';
 
 export default function () {
