@@ -69,7 +69,7 @@ const createItemData = (item) => {
     ];
 
     return {
-        itemTitle,
+        title: itemTitle,
         itemDescription,
         guid: `video${guid}`,
         custom_elements: [

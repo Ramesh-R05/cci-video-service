@@ -12,8 +12,8 @@
 ### Get latest videos from all brands
  - /video/mrss
 ### Get latest videos by playlist id/brand, in following example: X1jFQP7R is elle's playlist's id
- - /video/playlist/elle/mrss
- - /video/playlist/X1jFQP7R/mrss
+ - /video/playlist/MSN-NTL/mrss
+ - /video/playlist/ca4ZfbXt/mrss
 
  ### JWPlayer management api nonce and timestamp config formats
  - const apiNonce = Math.floor(Math.random() * 89999999 + 100000);
