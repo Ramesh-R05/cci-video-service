@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/bauerxcelmedia/video-service#readme",
   "dependencies": {
-    "@bxm/microservice": "^3.2.1",
+    "@bxm/microservice": "^3.6.0",
     "@bxm/rss-builder": "^1.1.4",
     "@bxm/winston-logger": "^1.1.0",
     "babel-cli": "^6.26.0",

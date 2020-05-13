@@ -32,7 +32,7 @@ describe("videoController", () => {
     describe("Get all videos from elle brand by its brand name", () => {
         it("should get all videos from elle brand by its brand name", (done) => {
              chai.request('http://localhost:3000')
-                 .get('/video/playlist/elle/mrss')
+                 .get('/video/playlist/MSN-ELLE/mrss')
                  .end((err, res) => {
                      res.should.have.status(200);
                      res.should.have.header('content-type', 'text/xml; charset=utf-8');
@@ -46,7 +46,7 @@ describe("videoController", () => {
     describe("Get all videos from elle brand by its playlist id", () => {
         it("should get all videos from elle brand by its playlist id", (done) => {
              chai.request('http://localhost:3000')
-                 .get('/video/playlist/X1jFQP7R/mrss')
+                 .get('/video/playlist/ca4ZfbXt/mrss')
                  .end((err, res) => {
                      res.should.have.status(200);
                      res.should.have.header('content-type', 'text/xml; charset=utf-8');

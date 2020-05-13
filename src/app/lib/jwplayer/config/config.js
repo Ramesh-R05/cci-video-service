@@ -1,12 +1,12 @@
 const config = {
     playlists: {
-        htl: 'uow1YkpX',
-        ntl: 'qjuMH9u5',
-        bh: 'XTnT0fm6',
-        gt: 'C5Agw7aM',
-        awwfood: 's8AHJS1Y',
-        hb: 'gBgrMJGq',
-        elle: 'X1jFQP7R'
+        'MSN-HTL': 'oWl2vUxg',
+        'MSN-NTL': 'zHXIkYZz',
+        'MSN-BH': 'FUE32PuL',
+        'MSN-GT': 'ye5SWCJW',
+        'MSN-AWWF': 'AEV64GvV',
+        'MSN-HB': 'RbS48oVF',
+        'MSN-ELLE': 'ca4ZfbXt'
     },
     baseManagementHost: 'http://api.jwplatform.com',
     baseDeliveryHost: 'https://cdn.jwplayer.com',

@@ -45,16 +45,17 @@ const createItemData = (item) => {
         image,
         pubdate,
         brightcoveid,
-        mediaId,
+        mediaid,
         duration
     } = item;
+
     const videoSource = sources.filter(source => source.label === '180p');
     const videoSrc = videoSource[0].file;
     const publisher = contentprovider || 'Bauer Media Pty Ltd';
     const category = brand;
     const itemTitle = title;
     const itemDescription = description || itemTitle;
-    const guid = brightcoveid || mediaId;
+    const guid = brightcoveid || mediaid;
     const updateDate = updatedAt || pubdate;
     const keyWords = tags || '';
     const licensorName = 'BAUER MEDIA PTY LIMITED';

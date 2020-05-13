@@ -32,3 +32,5 @@ shippable
 .idea
 .vagrant
 .env
+
+config.env

@@ -1,6 +1,6 @@
 import config from '../config/config';
-import request from 'request';
 import logger from '../../../../logger';
+import request from 'request';
 
 const { baseDeliveryHost } = config;
 const apiEndPoint = (id, version = 'v2', mainClass = 'playlists', format = 'json', params = null) => {
@@ -34,15 +34,15 @@ const allPlaylistVideos = (id, params) => {
 
 const allBrandLatestVideos = (playlists, params = null) => {
     const {
-        ntl, htl, elle,
-        hb, awwfood, bh, gt
+        'MSN-NTL': ntl, 'MSN-HTL': htl, 'MSN-ELLE': elle,
+        'MSN-HB': hb, 'MSN-AWWF': awwf, 'MSN-BH': bh, 'MSN-GT': gt
     } = playlists;
 
     const ntlPlaylist = allPlaylistVideos(ntl, params);
     const htlPlaylist = allPlaylistVideos(htl, params);
     const ellePlaylist = allPlaylistVideos(elle, params);
     const hbPlaylist = allPlaylistVideos(hb, params);
-    const awwfoodPlaylist = allPlaylistVideos(awwfood, params);
+    const awwfoodPlaylist = allPlaylistVideos(awwf, params);
     const bhPlaylist = allPlaylistVideos(bh, params);
     const gtPlaylist = allPlaylistVideos(gt, params);
 
