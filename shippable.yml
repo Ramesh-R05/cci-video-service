@@ -51,15 +51,15 @@ integrations:
       type: ecr
       region: ap-southeast-2
 
-  notifications:
-    - integrationName: slack-bauerxcelmedia
-      type: slack
-      recipients:
-        - "au-shippable"
-      branches:
-        only:
-          - master
-          - feature/*
-          - fix/*
-      on_success: always
-      on_failure: always
+#   notifications:
+#     - integrationName: slack-bauerxcelmedia
+#       type: slack
+#       recipients:
+#         - "au-shippable"
+#       branches:
+#         only:
+#           - master
+#           - feature/*
+#           - fix/*
+#       on_success: always
+#       on_failure: always
