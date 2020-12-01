@@ -11,7 +11,7 @@ const createChannelData = (req) => {
         site_url: `${protocol}://${hostname}${originalUrl}`,
         description: '',
         language: 'en-us',
-        copyright: `${(new Date()).getFullYear()} BAUER MEDIA PTY LIMITED`,
+        copyright: `${(new Date()).getFullYear()} ARE MEDIA PTY LIMITED`,
         ttl: 60,
         generator: `${protocol}://${hostname}`,
         custom_namespaces: {
@@ -58,7 +58,7 @@ const createItemData = (item) => {
     const guid = brightcoveid || mediaid;
     const updateDate = updatedAt || pubdate;
     const keyWords = tags || '';
-    const licensorName = 'BAUER MEDIA PTY LIMITED';
+    const licensorName = 'ARE MEDIA PTY LIMITED';
     const thumbnail = [
         {
             src: image,
