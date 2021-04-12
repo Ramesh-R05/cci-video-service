@@ -1,5 +1,5 @@
 {
-"family": "sit-master-video-service-task",
+"family": "sit-branch-video-service-task",
 "requiresCompatibilities": [ "EC2" ],
 "executionRoleArn": "arn:aws:iam::014901580825:role/ecsTaskExecutionRole",
 "containerDefinitions":
@@ -39,7 +39,7 @@
                 {
                 "name": "JWP_MANAGEMENT_SECRET",
                 "value": "mSJk3GDtLi1YxwF0o8axngBN"
-                },
+                }
             ],
             "logConfiguration":
             {
@@ -48,7 +48,7 @@
                 {
                     "awslogs-group": "/ecs/cci-app-ecs-logs",
                     "awslogs-region": "ap-southeast-2",
-                    "awslogs-stream-prefix": "sit-master-video-service-logs"
+                    "awslogs-stream-prefix": "sit-branch-video-service-logs"
                 }
             },
             "essential": true
