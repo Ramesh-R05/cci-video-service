@@ -74,23 +74,20 @@ jobs:
       - run:
           name: "Install | YARN | NPM | NODE_JS"
           command: |
-                echo -e "\n\n\n ### UBUNTU_16.04 | YARN | NPM | NODE_JS "
+                echo -e "\n\n\n ### UBUNTU_16.04 | NVM | NPM | NODE_JS "
                 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
                 source ~/.profile
-                echo -e "\n ### Install NVM v10.19.0 "
-                nvm install v6.11.1
-                echo -e "\n ### Setting Default NVM v10.19.0 "
-                nvm use v6.11.1;
-                npm install --global yarn
+                echo -e "\n ### Install NVM "
+                nvm install v10.19.0
+                echo -e "\n ### Setting Default NVM  "
+                nvm use v10.19.0;
                 echo -e "\n ### Setting NPM Registry as BXM "
                 npm set @bxm:registry http://npm.digital.bauer-media.net.au
                 cd src; pwd;
-                yarn install
-                npm run test:ci
+                npm install
                 echo -e "\n ### Version Information "
                 echo -e "\n ### NPM Version  : $(npm --version)"
                 echo -e "\n ### Node Version : $(node --version)"
-                echo -e "\n ### Yarn Version : $(yarn --version)"
                 echo -e "\n ### Docker Version: $(docker --version)"
 
 # AWS ECR Integration: Build and Push Docker Image to ECR
